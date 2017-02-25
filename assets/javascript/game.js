@@ -36,41 +36,55 @@ $(document).ready(function() {
                 game.userTotal += parseInt(game.crystal1);
                 console.log("user total = " + game.userTotal);
                 $("#user-total").html(game.userTotal);
+                game.compare();
             });
             $("#crystal2-d").click(function (){
                 console.log("you clicked the 2nd crystal");
                 game.userTotal += parseInt(game.crystal2);
                 console.log("user total = " + game.userTotal);
                 $("#user-total").html(game.userTotal);
+                game.compare();
             });
             $("#crystal3-d").click(function (){
                 console.log("you clicked the 3rd crystal");
                 game.userTotal += parseInt(game.crystal3);
                 console.log("user total = " + game.userTotal);
                 $("#user-total").html(game.userTotal);
+                game.compare();
             });
             $("#crystal4-d").click(function (){
                 console.log("you clicked the 4th crystal");
                 game.userTotal += parseInt(game.crystal4);
                 console.log("user total = " + game.userTotal);
                 $("#user-total").html(game.userTotal);
+                game.compare();
             });
-            this.compare();
+
         },
 
         //this.userTotal and this.answer returning undefined ????
         compare: function () {
             if (parseInt(this.userTotal) === parseInt(this.answer)){
-                wins++;
+                this.wins++;
                 $("#wins-d").html(this.wins);
-                console.log("you win");
+                alert("you win");
+                this.reset();
             }
             else if (parseInt(this.userTotal) > parseInt(this.answer)){
-                losses++;
+                this.losses++;
                 $("#losses-d").html(this.losses);
-                console.log("you lose");
+                alert("you lose");
+                this.reset();
             }
 
+        },
+
+        reset: function () {
+            this.userTotal = 0;
+            $("#user-total").html(this.userTotal);
+            this.answer = 0;
+            $("#answer-d").html(this.answer);
+            this.startGame();
         }
     };
 
