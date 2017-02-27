@@ -67,14 +67,23 @@ $(document).ready(function() {
             if (parseInt(this.userTotal) === parseInt(this.answer)){
                 this.wins++;
                 $("#wins-d").html(this.wins);
-                alert("you win");
-                this.reset();
+                setTimeout(function() {
+                    alert("you win");
+                },50);
+                setTimeout(function() {
+                    game.reset();
+                },1000);
+
             }
             else if (parseInt(this.userTotal) > parseInt(this.answer)){
                 this.losses++;
                 $("#losses-d").html(this.losses);
-                alert("you lose");
-                this.reset();
+                setTimeout(function() {
+                    alert("you lose");
+                },50);
+                setTimeout(function() {
+                    game.reset();
+                },1000);
             }
 
         },
